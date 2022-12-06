@@ -87,6 +87,10 @@ step 9: Overwrite the kernel code by downloading the vmx.c and cpuid.c from your
       cd /linux-6.0.7/arch/x86/kvm/
       rm cpuid.c
       wget https://raw.githubusercontent.com/souperala/CMPE283-Assignment2/main/cpuid.c
+      
+<img width="1203" alt="image" src="https://user-images.githubusercontent.com/98585812/205812630-a6972082-1d32-41cd-9458-696c0336f964.png">
+<img width="1176" alt="image" src="https://user-images.githubusercontent.com/98585812/205812669-3cb18310-1562-497c-8a04-6683672dc67f.png">
+
     
 step 10: Build the kernel and install the modules with the updated kernel code
 
@@ -126,8 +130,7 @@ So, use these instructions to modify the password and log in to the virtual mach
 <img width="1006" alt="image" src="https://user-images.githubusercontent.com/98585812/205796526-07c40e37-1d4f-4cd9-bf17-429247785c19.png">
 <img width="969" alt="image" src="https://user-images.githubusercontent.com/98585812/205796670-1d0bc369-6204-437e-80d7-0699522f785a.png">
 <img width="975" alt="image" src="https://user-images.githubusercontent.com/98585812/205796728-9ca9e735-89b6-4203-84f1-4b33ae050205.png">
-<img width="967" alt="image" src="https://user-images.githubusercontent.com/98585812/205800139-52e32da0-068d-457b-8acf-95e46a31b317.png">
-
+<img width="744" alt="image" src="https://user-images.githubusercontent.com/98585812/205811400-f7a658e5-ebc2-46f3-8bd1-afe6f7850a6c.png">
 
 step 13: To check the VM functions correctly, install the cpuid utility by following the below commands
         
@@ -136,13 +139,18 @@ step 13: To check the VM functions correctly, install the cpuid utility by follo
 <img width="958" alt="image" src="https://user-images.githubusercontent.com/98585812/205799963-39261c6d-47f6-43d2-8573-61dd3aa13b64.png">
 
 step 14: open the two terminals(GCP VM "T1", and nested VM terminal "T2") and test the cpuid functionality using the below commands
-    
-        Testing the CPUID functionality for '%eax=0x4ffffffc'
-          T2: sudo cpuid -l 0x4ffffffc
-          T1: sudo dmesg
+
+        Testing the CPUID functionality for '%eax=0x4ffffffc'      
+        T2: sudo cpuid -l 0x4ffffffc
+<img width="756" alt="image" src="https://user-images.githubusercontent.com/98585812/205811522-37044237-df26-4c76-9ef8-91e164d7c18a.png">
+        T1: sudo dmesg
+<img width="770" alt="image" src="https://user-images.githubusercontent.com/98585812/205811575-d1d8de84-06a7-4023-9694-72229b0c1e67.png">
+
         Testing the CPUID functionality for '%eax=0x4ffffffd'
-          T2: sudo cpuid -l 0x4ffffffd
-          T1: sudo dmesg
+        T2: sudo cpuid -l 0x4ffffffd
+<img width="730" alt="image" src="https://user-images.githubusercontent.com/98585812/205811627-32facdb8-116c-48e1-af73-8a4976e0892d.png">
+        T1: sudo dmesg
+<img width="781" alt="image" src="https://user-images.githubusercontent.com/98585812/205811677-7a421277-a5a6-44f6-9192-751f5709e162.png">
 
     
 
