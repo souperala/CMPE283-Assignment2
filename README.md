@@ -119,13 +119,13 @@
 - Go to the folder where the.img file was downloaded. There is no default password for the virtual machine included with this Ubuntu cloud image.
 So, use these instructions to modify the password and log in to the virtual machine:
 
-    sudo apt-get install cloud-image-utils
-    vi user-data
-        #cloud-config
-        password: newpass #new password here
-        chpasswd: { expire: False }
-        ssh_pwauth: True
-    cloud-localds user-data.img user-data (Give the username and password to connect to this nested VM)
+       sudo apt-get install cloud-image-utils
+       vi user-data
+           #cloud-config
+           password: newpass #new password here
+           chpasswd: { expire: False }
+           ssh_pwauth: True
+       cloud-localds user-data.img user-data (Give the username and password to connect to this nested VM)
 
 <img width="1006" alt="image" src="https://user-images.githubusercontent.com/98585812/205796526-07c40e37-1d4f-4cd9-bf17-429247785c19.png">
 <img width="969" alt="image" src="https://user-images.githubusercontent.com/98585812/205796670-1d0bc369-6204-437e-80d7-0699522f785a.png">
