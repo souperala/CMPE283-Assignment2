@@ -2,12 +2,13 @@
 
 ## Assignment II - Instrumentation via hypercall (Student ID: 016114254)
 
-   Objective: 
+
+   Objective:  
     The aim of this assignment is to modify the CPUID emulation code in KVM to report back additional information when special CPUID leaf nodes are requested.
     
-        For CPUID leaf node %eax=0x4FFFFFFC:
+        CPUID leaf node %eax=0x4FFFFFFC:
             Return the total number of exits (all types) in %eax
-        For CPUID leaf node %eax=0x4FFFFFFD:
+        CPUID leaf node %eax=0x4FFFFFFD:
             Return the high 32 bits of the total time spent processing all exits in %ebx
             Return the low 32 bits of the total time spent processing all exits in %ecx
               %ebx and %ecx return values are measured in processor cycles, across all vCPUs
@@ -77,7 +78,7 @@
 <img width="956" alt="image" src="https://user-images.githubusercontent.com/98585812/205790539-a5ed7d31-30c5-4338-be4a-af0a0481c488.png">
 <img width="817" alt="image" src="https://user-images.githubusercontent.com/98585812/205790983-15509392-d814-48f1-a6ac-8c10752b6aaf.png">
 
-#### step 9: Overwrite the kernel code by downloading the vmx.c and cpuid.c from your repository by making the repo public
+#### step 8: Overwrite the kernel code by downloading the vmx.c and cpuid.c from your repository by making the repo public
 
       vmx.c: /linux-6.0.7/arch/x86/kvm/vmx/vmx.c
       cd /linux-6.0.7/arch/x86/kvm/vmx/
@@ -92,12 +93,12 @@
 <img width="1176" alt="image" src="https://user-images.githubusercontent.com/98585812/205812669-3cb18310-1562-497c-8a04-6683672dc67f.png">
 
     
-#### step 10: Build the kernel and install the modules with the updated kernel code
+#### step 9: Build the kernel and install the modules with the updated kernel code
 
       sudo make -j 512 modules && sudo make -j 512 modules_install
 <img width="863" alt="image" src="https://user-images.githubusercontent.com/98585812/205794620-ea09038a-4963-401a-965b-1c320a17d424.png">
 
-#### step 11: Reload the kernel modules following the below commands
+#### step 10: Reload the kernel modules following the below commands
 
       sudo rmmod kvm_intel
       sudo rmmod kvm
@@ -106,7 +107,7 @@
 
 <img width="972" alt="image" src="https://user-images.githubusercontent.com/98585812/205794873-5caf1ed2-728d-4098-9ba3-3a84631f83a9.png">
 
-#### step 12: Create a nested VM in the current GCP VM by following the below steps
+#### step 11: Create a nested VM in the current GCP VM by following the below steps
 
 - Download the Ubuntu cloud image(QEMU compatible image) in GCP VM from the below ubuntu cloud images site
     
@@ -134,13 +135,13 @@ So, use these instructions to modify the password and log in to the virtual mach
 - New VM has been launched, here is a snapshot of the nested VM
 <img width="744" alt="image" src="https://user-images.githubusercontent.com/98585812/205811400-f7a658e5-ebc2-46f3-8bd1-afe6f7850a6c.png">
 
-#### step 13: To check the VM functions correctly, install the cpuid utility by following the below commands
+#### step 12: To check the VM functions correctly, install the cpuid utility by following the below commands
         
         sudo apt-get update
         sudo apt-get install cpuid  
 <img width="958" alt="image" src="https://user-images.githubusercontent.com/98585812/205799963-39261c6d-47f6-43d2-8573-61dd3aa13b64.png">
 
-#### step 14: open the two terminals(GCP VM "T1", and nested VM terminal "T2") and test the cpuid functionality using the below commands
+#### step 13: open the two terminals(GCP VM "T1", and nested VM terminal "T2") and test the cpuid functionality using the below commands
 
         Testing the CPUID functionality for '%eax=0x4ffffffc'      
         T2: sudo cpuid -l 0x4ffffffc
