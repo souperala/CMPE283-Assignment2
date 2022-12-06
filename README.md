@@ -10,14 +10,7 @@
         For CPUID leaf node %eax=0x4FFFFFFD:
             Return the high 32 bits of the total time spent processing all exits in %ebx
             Return the low 32 bits of the total time spent processing all exits in %ecx
-              %ebx and %ecx return values are measured in processor cycles, across all vCPUs.
-        For CPUID leaf node %eax=0x4FFFFFFE:
-            Return the number of exits for the exit number provided (on input) in %ecx
-              This value should be returned in %eax 
-        For CPUID leaf node %eax=0x4FFFFFFF:
-            Return the time spent processing the exit number provided (on input) in %ecx
-              Return the high 32 bits of the total time spent for that exit in %ebx
-              Return the high 32 bits of the total time spent for that exit in %ebx
+              %ebx and %ecx return values are measured in processor cycles, across all vCPUs
               
    ### 1. Team contribution:
    
@@ -92,7 +85,7 @@ step 9: Overwrite the kernel code by downloading the vmx.c and cpuid.c from your
       wget https://raw.githubusercontent.com/souperala/CMPE283-Assignment2/main/vmx.c
       cpuid.c: /linux-6.0.7/arch/x86/kvm/cpuid.c
       cd /linux-6.0.7/arch/x86/kvm/
-      rm vmx.c
+      rm cpuid.c
       wget https://raw.githubusercontent.com/souperala/CMPE283-Assignment2/main/cpuid.c
     
 step 10: Build the kernel and install the modules with the updated kernel code
